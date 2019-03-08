@@ -66,7 +66,7 @@ void remove_extra_spaces_from_string(char *string) {
 }
 
 void remove_extra_spaces_from_text(char **str_array, const size_t number) {
-    if (NULL == str_array || number <= 0) {
+    if (NULL == str_array || !number) {
         return;
     }
 
