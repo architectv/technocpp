@@ -82,6 +82,9 @@ char *get_string(FILE *stream) {
 
     char *string = NULL;
     char *buff = malloc(SIZE * sizeof(char));
+    if (NULL == buff) {
+        return NULL;
+    }
 
     size_t len = 0;
     size_t buff_len = 0;
@@ -172,16 +175,28 @@ char **get_text(size_t *number, FILE *stream) {
 }
 
 void print_text(const char *arr[], const size_t number, FILE *stream) {
+    if (NULL == arr) {
+        return;
+    }
+
     for (size_t i = 0; i < number; ++i) {
         fprintf(stream, "%s\n", arr[i]);
     }
 }
 
 void print_error(const char *message, FILE *stream) {
+    if (NULL == message) {
+        return;
+    }
+
     fprintf(stream, "%s\n", message);
 }
 
 void free_text(char **str_array, const size_t number) {
+    if (NULL == str_array) {
+        return;
+    }
+
     for (size_t i = 0; i < number; ++i) {
         free(str_array[i]);
     }
